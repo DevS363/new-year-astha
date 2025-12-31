@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New Year Surprise ❤️</title>
+<title>Happy New Year My Love ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -18,50 +18,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     background: radial-gradient(circle at top, #0a0f2c, #000);
     color: #fff;
-    overflow: hidden;
 }
 
-/* ---------- LOCK SCREEN ---------- */
-#lockScreen {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at top, #0d1440, #000);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    text-align: center;
-    transition: opacity 1.5s ease;
-}
-
-#lockScreen h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #ffd6e8;
-}
-
-#countdown {
-    font-size: 3rem;
-    letter-spacing: 3px;
-    color: #fff;
-    animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-    0% { opacity: 0.6; }
-    50% { opacity: 1; }
-    100% { opacity: 0.6; }
-}
-
-/* ---------- MAIN CONTENT ---------- */
-#content {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 2s ease;
-}
-
+/* Sections */
 section {
     padding: 80px 20px;
     max-width: 900px;
@@ -99,10 +58,10 @@ section {
 }
 
 .card {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.06);
     border-radius: 15px;
     overflow: hidden;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(6px);
     transition: transform 0.4s ease;
 }
 
@@ -140,9 +99,8 @@ section {
     color: #ccc;
 }
 
-/* Responsive */
+/* Mobile */
 @media(max-width: 600px) {
-    #countdown { font-size: 2.2rem; }
     .hero h1 { font-size: 2.3rem; }
 }
 </style>
@@ -150,91 +108,47 @@ section {
 
 <body>
 
-<!-- LOCK SCREEN -->
-<div id="lockScreen">
-    <h1>Something special is waiting for you… just a little longer ❤️</h1>
-    <div id="countdown">00:00:00</div>
-</div>
+<section class="hero">
+    <h1>Happy New Year, My Love ❤️</h1>
+    <p>Another year begins, and I’m so grateful I get to spend it loving you.</p>
+</section>
 
-<!-- MAIN CONTENT -->
-<div id="content">
+<section class="message">
+    <p>
+        As this new year begins, my heart feels full because of you.
+        Every memory we’ve made, every smile, every moment together
+        reminds me how lucky I am. You are my comfort, my happiness,
+        and my favorite part of every day. I look forward to creating
+        many more memories with you — today, tomorrow, and always.
+    </p>
+</section>
 
-    <section class="hero">
-        <h1>Happy New Year, My Love ❤️</h1>
-        <p>Another year begins, and I’m so grateful I get to spend it loving you.</p>
-    </section>
+<section class="gallery">
+    <div class="card">
+        <img src="image1.jpg">
+        <p>This moment reminds me how lucky I am to have you.</p>
+    </div>
+    <div class="card">
+        <img src="image2.jpg">
+        <p>Every smile of yours makes my world brighter.</p>
+    </div>
+    <div class="card">
+        <img src="image3.jpg">
+        <p>With you, even ordinary days feel magical.</p>
+    </div>
+    <div class="card">
+        <img src="image4.jpg">
+        <p>You are my favorite place to be.</p>
+    </div>
+</section>
 
-    <section class="message">
-        <p>
-            As the clock turned to a new year, all I could think about was you.
-            Every laugh we shared, every challenge we overcame, every quiet moment
-            that felt like home. You make my days softer, my heart fuller, and my
-            future brighter. This year, and every year ahead, I promise to love you
-            with the same warmth, patience, and devotion — even more than before.
-        </p>
-    </section>
-
-    <section class="gallery">
-        <div class="card">
-            <img src="image1.jpg">
-            <p>This moment reminds me how lucky I am to have you.</p>
-        </div>
-        <div class="card">
-            <img src="image2.jpg">
-            <p>Every smile of yours makes my world brighter.</p>
-        </div>
-        <div class="card">
-            <img src="image3.jpg">
-            <p>With you, even ordinary days feel magical.</p>
-        </div>
-        <div class="card">
-            <img src="image4.jpg">
-            <p>You are my favorite place to be.</p>
-        </div>
-    </section>
-
-    <section class="closing">
-        <h2>No matter where life takes us, I choose you — this year and every year.</h2>
-        <div class="signature">With all my love, <br>— Your Name ❤️</div>
-    </section>
-
-</div>
-
-<script>
-function updateCountdown() {
-    const now = new Date();
-    const newYear = new Date(now.getFullYear() + 1, 0, 1, 0, 0, 0);
-    const diff = newYear - now;
-
-    if (diff <= 0) {
-        unlockSite();
-        return;
-    }
-
-    const hrs = Math.floor(diff / (1000 * 60 * 60));
-    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById("countdown").innerText =
-        `${String(hrs).padStart(2,'0')}:${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
-}
-
-function unlockSite() {
-    const lock = document.getElementById("lockScreen");
-    const content = document.getElementById("content");
-
-    lock.style.opacity = "0";
-    setTimeout(() => {
-        lock.style.display = "none";
-        document.body.style.overflow = "auto";
-        content.style.opacity = "1";
-        content.style.pointerEvents = "auto";
-    }, 1500);
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
-</script>
+<section class="closing">
+    <h2>No matter where life takes us, I choose you — this year and every year.</h2>
+    <div class="signature">
+        With all my love,<br>
+        — Dev ❤️
+    </div>
+</section>
 
 </body>
 </html>
